@@ -1,20 +1,22 @@
 package com.example.brita.messingwithrxjava
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
+import com.example.brita.messingwithrxjava.picturedemo.PictureDemoActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import java.util.logging.Level
 import java.util.logging.Logger
 
-private val TAG = "MainActivity"
+private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +34,11 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+        }
+
+        picDemoBtn.setOnClickListener {
+            var intent = Intent(this, PictureDemoActivity::class.java)
+            startActivity(intent)
         }
 
         // just emits 1, 2, 3 to the log
